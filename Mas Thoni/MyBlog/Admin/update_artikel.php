@@ -30,13 +30,13 @@
 								  <span class="input-group-addon" id="sizing-addon2">
 								  	<i class="glyphicon glyphicon-asterisk"></i>
 								  </span>
-								  <input type="text" class="form-control" placeholder="Judul Artikel" name="judul_artikel" aria-describedby="sizing-addon2" value="<?php echo $data_artikel['judul_artikel']; ?>">
+								  <input type="text" class="form-control" placeholder="Judul Artikel" name="judul_artikel" aria-describedby="sizing-addon2" value="<?php echo $data_artikel['judul_artikel']; ?>" required="required">
 								</div>
 								<div class="input-group form-group">
 								  <span class="input-group-addon" id="sizing-addon2">
 								  	<i class="glyphicon glyphicon-pencil"></i>
 								  </span>
-								  <textarea class="form-control" placeholder="Konten Artikel" name="isi_artikel" aria-describedby="sizing-addon2" rows="20" style="resize:none;"><?php echo $data_artikel['isi_artikel']; ?></textarea>
+								  <textarea class="form-control" placeholder="Konten Artikel" name="isi_artikel" aria-describedby="sizing-addon2" rows="20" style="resize:none;" required="required"><?php echo $data_artikel['isi_artikel']; ?></textarea>
 								</div>
 								<div class="input-group form-group">
 								  <span class="input-group-addon" id="sizing-addon2">

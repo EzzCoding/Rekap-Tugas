@@ -13,7 +13,7 @@
 								  <span class="input-group-addon" id="sizing-addon2">
 								  	<i class="glyphicon glyphicon-tag"></i>
 								  </span>
-								  <input type="text" class="form-control" placeholder="Nama Kategori" name="nama_kategori" aria-describedby="sizing-addon2">
+								  <input type="text" class="form-control" placeholder="Nama Kategori" name="nama_kategori" aria-describedby="sizing-addon2" required="required">
 								</div>
 								<div class="form-group">
 									<div class="col-md-4">

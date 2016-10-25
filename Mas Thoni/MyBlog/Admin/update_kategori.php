@@ -17,7 +17,7 @@
 								  <span class="input-group-addon" id="sizing-addon2">
 								  	<i class="glyphicon glyphicon-tag"></i>
 								  </span>
-								  <input type="text" class="form-control" placeholder="Nama Kategori" name="nama_kategori" aria-describedby="sizing-addon2" value="<?php echo $data_kategori['nama_kategori']; ?>">
+								  <input type="text" class="form-control" placeholder="Nama Kategori" name="nama_kategori" aria-describedby="sizing-addon2" value="<?php echo $data_kategori['nama_kategori']; ?>" required="required">
 								</div>
 								<div class="form-group">
 									<div class="col-md-4">

@@ -28,13 +28,13 @@
 								  <span class="input-group-addon" id="sizing-addon2">
 								  	<i class="glyphicon glyphicon-asterisk"></i>
 								  </span>
-								  <input type="text" class="form-control" placeholder="Judul Artikel" name="judul_artikel" aria-describedby="sizing-addon2">
+								  <input type="text" class="form-control" placeholder="Judul Artikel" name="judul_artikel" aria-describedby="sizing-addon2" required="required">
 								</div>
 								<div class="input-group form-group">
 								  <span class="input-group-addon" id="sizing-addon2">
 								  	<i class="glyphicon glyphicon-pencil"></i>
 								  </span>
-								  <textarea class="form-control" placeholder="Konten Artikel" name="isi_artikel" aria-describedby="sizing-addon2" rows="20" style="resize:none;"></textarea>
+								  <textarea class="form-control" placeholder="Konten Artikel" name="isi_artikel" aria-describedby="sizing-addon2" rows="20" style="resize:none;" required="required"></textarea>
 								</div>
 								<div class="input-group form-group">
 								  <span class="input-group-addon" id="sizing-addon2">

@@ -19,7 +19,7 @@
 
 			$id_artikel = $POST['id_artikel'];
 
-			if (isset($_FILES)) {
+			if ($_FILES['foto_profil']['name'] != "") {
 				$folder = '../../assets/img/';
 				$folderfile = $folder .$_FILES['gambar_artikel']['name'];
 
@@ -31,9 +31,10 @@
 						echo '<script type="text/javascript">alert("Artikel berhasil diupdate");location.href = "../artikel.php";</script>';
 					}
 				} else {
-
-					echo "File gagal diupload";
+					echo '<script type="text/javascript">alert("File Gagal diupload");location.href = "../tambah_artikel.php";</script>';
 				}
+			} else {
+				echo '<script type="text/javascript">alert("Gambar Artikel Harus diisi");location.href = "../tambah_artikel.php";</script>';
 			}
 		}
 	}

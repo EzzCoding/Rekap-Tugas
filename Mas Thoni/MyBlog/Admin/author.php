@@ -24,13 +24,13 @@
 						  <span class="input-group-addon" id="sizing-addon2">
 						  	<i class="glyphicon glyphicon-user"></i>
 						  </span>
-						  <input type="text" class="form-control" placeholder="Nama Author" name="nama" aria-describedby="sizing-addon2" value="<?php echo $_SESSION['nama']; ?>">
+						  <input type="text" class="form-control" placeholder="Nama Author" name="nama" aria-describedby="sizing-addon2" value="<?php echo $_SESSION['nama']; ?>" required="required">
 						</div>
 						<div class="input-group form-group">
 						  <span class="input-group-addon" id="sizing-addon2">
 						  	<i class="glyphicon glyphicon-pencil"></i>
 						  </span>
-						  <textarea class="form-control" placeholder="Deskripsi Author" name="deskripsi_author" aria-describedby="sizing-addon2" rows="10" style="resize:none;" maxlength="125"><?php echo $_SESSION['deskripsi']; ?></textarea>
+						  <textarea class="form-control" placeholder="Deskripsi Author" name="deskripsi_author" aria-describedby="sizing-addon2" rows="10" style="resize:none;" maxlength="125" required="required"><?php echo $_SESSION['deskripsi']; ?></textarea>
 						</div>
 						<div class="form-group">
 							<div class="col-md-4">
