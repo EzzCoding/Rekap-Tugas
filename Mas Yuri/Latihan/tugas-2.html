@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Achmad Chadil Auwfar</title>
+		<meta charset="utf-8">
+			<link rel="icon" href="favicon.png" type="image/png">
+
+			<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<h2 id="judul">Complex Data Entry Form for Record 3136</h2>
+		<form>
+			<table width="100%" class="tabel">
+				<tr>
+					<td rowspan="2">
+						<fieldset>
+							<legend><font color="blue"> Puchase Info </font></legend>
+							<table width="100%">
+								<tr>
+									<th align="right">
+										Credit Card
+									</th>
+									<td>
+										<select required="required" name="credit_card">
+											<option disabled="disabled" selected="selected"></option>
+											<option>American Express</option>
+											<option>Indonesian Express</option>
+										</select>
+									</td>
+									<th align="right">
+										Network
+									</th>
+									<td>
+										<select required="required" name="network">
+											<option disabled="disabled" selected="selected">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</option>
+											<option>Network 1</option>
+											<option>Network 2</option>
+											<option>Network 3</option>
+											<option>Network 4</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Card #
+									</th>
+									<td>
+										<input required="required" type="text" name="card">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Text One
+									</th>
+									<td>
+										<input required="required" type="text" name="text_one">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										First Date
+									</th>
+									<td>
+										<input required="required" type="date" name="first_date">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										2nd Date
+									</th>
+									<td>
+										<input required="required" type="date" name="second_date">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Third Date
+									</th>
+									<td>
+										<input required="required" type="date" name="third_date">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										First Amt
+									</th>
+									<td>
+										<input required="required" type="text" name="first_amt">
+									</td>
+									<th align="right">
+										2nd Amt
+									</th>
+									<td>
+										<input required="required" type="text" name="second_amt">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Reason:
+									</th>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<select required="required" name="reason">
+											<option disabled="disabled" selected="selected"></option>
+											<option>Reason 1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</option>
+											<option>Reason 2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</option>
+											<option>Reason 3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</option>
+											<option>Reason 4 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+						</fieldset>
+					</td>
+					<td>
+						<fieldset>
+							<legend><font color="blue"> Store Info </font></legend>
+							<table width="100%">
+								<tr>
+									<th align="right">
+										Store #
+									</th>
+									<td>
+										<input required="required" type="text" name="store" value="31020706" disabled="disabled" size="35">
+									</td>
+									<td colspan="2" align="center">
+										<button name="lookup_store">Lookup Store Info</button>
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Name
+									</th>
+									<td colspan="3">
+										<input required="required" type="text" name="store_name" disabled="disabled" size="70" value="The Web Developer">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Region
+									</th>
+									<td>
+										<input required="required" type="text" name="region" disabled="disabled" value="West">
+									</td>
+									<th align="right">
+										System
+									</th>
+									<td>
+										<input required="required" type="text" name="system" disabled="disabled" value="US">
+									</td>
+								</tr>
+								</tr>
+								<tr>
+									<th align="right">
+										Exempt
+									</th>
+									<td colspan="3">
+										<input required="required" type="text" name="exempt" disabled="disabled" size="35">
+									</td>
+								</tr>
+							</table>
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="2">
+						<fieldset>
+							<legend><font color="blue"> POS Info </font></legend>
+							<table width="100%">
+								<tr>
+									<th align="right">
+										Trans #
+									</th>
+									<td>
+										<input required="required" type="text" name="trans">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Register
+									</th>
+									<td>
+										<input required="required" type="text" name="register">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Trans Amt
+									</th>
+									<td>
+										<input required="required" type="text" name="trans_amt">
+									</td>
+									<th align="right">
+										Tax Amt
+									</th>
+									<td>
+										<input required="required" type="text" name="tax_amt">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Trans Date
+									</th>
+									<td>
+										<input required="required" type="date" name="trans_date">
+									</td>
+									<th align="right">
+										Reconcile Date
+									</th>
+									<td>
+										<input required="required" type="date" name="reconcile_date">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Clerk ID
+									</th>
+									<td>
+										<input required="required" type="text" name="clerk_id">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Clerk Name
+									</th>
+									<td>
+										<input required="required" type="text" name="clerk_name">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Distribution
+									</th>
+									<td>
+										<select required="required" name="distribution">
+											<option disabled="disabled" selected="selected"></option>
+											<option>Store 1</option>
+											<option>Store 2</option>
+											<option>Store 3</option>
+											<option>Store 4</option>
+										</select>
+									</td>
+									<th align="right">
+										Fullfillment
+									</th>
+									<td>
+										<select required="required" name="fullfillment">
+											<option disabled="disabled" selected="selected">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</option>
+											<option>Mail 1</option>
+											<option>Mail 2</option>
+											<option>Mail 3</option>
+											<option>Mail 4</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">
+										Code:
+									</th>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<select required="required" name="code">
+											<option disabled="disabled" selected="selected"></option>
+											<option>Code 1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</option>
+											<option>Code 2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</option>
+											<option>Code 3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</option>
+											<option>Code 4 - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">
+										Security Code:
+									</th>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<select required="required" name="security_code">
+											<option disabled="disabled" selected="selected"></option>
+											<option>Code 1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</option>
+											<option>Code 2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</option>
+											<option>Code 3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</option>
+											<option>Code 4 - Lorem ipsum dolor sit amet, consectetur adipisicing elit.</option>
+										</select>
+									</td>
+								</tr>
+							</table>
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<fieldset>
+							<legend><font color="blue"> Contact Info </font></legend>
+							<table width="100%">
+								<tr>
+									<th align="right">
+										Contact Date
+									</th>
+									<td>
+										<input required="required" type="date" name="contact_date">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Contact Name
+									</th>
+									<td>
+										<input required="required" type="text" name="contact_name">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Contact Email
+									</th>
+									<td>
+										<input required="required" type="email" name="contact_email">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Request:
+									</th>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<input required="required" type="text" name="request" size="70">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Contact Responded
+									</th>
+									<td>
+										<input required="required" type="checkbox" name="contact_responded">
+									</td>
+								</tr>
+							</table>
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<fieldset>
+							<legend><font color="blue"> Notes </font></legend>
+							<table width="100%">
+								<tr>
+									<td>
+										2005-09-26 (nam) test
+									</td>
+								</tr>
+								<tr>
+									<td>
+										2005-09-26 (bis) 2nd note
+									</td>
+								</tr>
+								<tr>
+									<td>
+										2005-09-26 (auw) 3nd note
+									</td>
+								</tr>
+								<tr>
+									<td>
+										2005-09-26 (zuh) 4nd note
+									</td>
+								</tr>
+								<tr>
+									<th align="left">
+										New Note:
+									</th>
+								</tr>
+								<tr>
+									<td colspan="4">
+										<input required="required" type="text" name="note" size="70">
+									</td>
+								</tr>
+							</table>
+						</fieldset>
+					</td>
+					<td>
+						<fieldset>
+							<legend><font color="blue"> Record Info </font></legend>
+							<table width="100%">
+								<tr>
+									<th align="right">
+										Entry Date
+									</th>
+									<td>
+										<input required="required" type="date" name="entry_date" value="2004-06-25" disabled="disabled">
+									</td>
+									<th align="right">
+										Operator
+									</th>
+									<td>
+										<input required="required" type="text" name="operator" value="crs" disabled="disabled">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Status
+									</th>
+									<td>
+										<input required="required" type="text" name="status" value="Pending (PE)" disabled="disabled">
+									</td>
+									<th align="right">
+										Case Type
+									</th>
+									<td>
+										<input required="required" type="text" name="case_type" value="CI" disabled="disabled">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Supervisor
+									</th>
+									<td>
+										<input required="required" type="text" name="supervisor">
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Case Exempt
+									</th>
+									<td>
+										<input required="required" type="checkbox" name="case_exempt">
+									</td>
+									<td align="right" colspan="2">
+										<button name="cancel">Cancel</button>
+									</td>
+								</tr>
+								<tr>
+									<th align="right">
+										Date Updated
+									</th>
+									<td>
+										<input required="required" type="checkbox" name="date_updated">
+									</td>
+									<td align="right" colspan="2">
+										<button type="submit" name="create">Create</button>
+									</td>
+								</tr>
+							</table>
+						</fieldset>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

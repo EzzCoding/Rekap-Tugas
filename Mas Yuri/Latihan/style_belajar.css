@@ -1,0 +1,135 @@
+/** {
+	padding: 0;
+	margin: 0;
+}*/
+
+/*.clearfix {
+	clear: both;
+}
+
+#header {
+	background: lightblue;
+	text-align: center;
+	border-radius: 10px 10px 0px 0px;
+}
+
+#navbar {
+	background: orange;
+}
+
+#content {
+	background: green;
+	position: relative;
+	height: 200px;
+}
+
+#content #sidebar {
+	width: 30%;
+	background: purple;
+	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: center;
+}
+
+#content #mainbar {
+	width: 70%;
+	background: yellow;
+	/*float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#footer {
+	background: red;
+	text-align: center;
+	border-radius: 0px 0px 10px 10px;
+}*/
+/*
+div {
+	background: lightblue;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}*/
+
+#kotak1 {
+	background: red;
+	z-index: 2;
+}
+
+#kotak2 {
+	background: blue;
+	top: 50px;
+	left: 50px;
+}
+
+input:hover {
+	background: red;
+}
+
+input:focus {
+	background: blue;
+}
+
+input:active {
+	background: green;
+}
+
+/*ul li:first-child {
+	color: red;
+}
+
+ul li:last-child {
+	color: blue;
+}*/
+
+/*Ganjil*/
+/*ul li:nth-child(odd) {
+	color: blue;
+}*/
+
+/*ul li:nth-child(1n+3) { --> n = 0 - tak terhingga --> 3, 4, 6, 7
+	color: blue;
+}*/
+
+/*Genap*/
+/*ul li:nth-child(even) {
+	color: blue;
+}*/
+
+li:not(.diff) {
+	color: blue;
+}
+
+/*h1:before {
+	content: 'Achmad';
+}
+
+h1:after {
+	content: 'Auwfar';
+}*/
+
+/*semua anaknya berpengaruh*/
+/*.content ul {
+	color: red;
+}*/
+
+/*hanya anak dibawahnya pas yang berpengaruh*/
+.content > ul {
+	color: red;
+}
+
+/*hanya yang posisinya sejajar yang berpengaruh*/
+.judul ~ a {
+	color: red;
+}
+
+/*yang mempunyai atribut type dengan value text yang akan berubah*/
+input[type='text'] {
+	background: red;
+}

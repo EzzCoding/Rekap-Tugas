@@ -1,0 +1,49 @@
+
+#box-besar {
+	z-index: 0;
+	width: 300px;
+	height: 300px;
+	border: 1px solid grey;
+	left: 250px;
+	top: 100px;
+	border-radius: 150px;
+}
+
+#box {
+	z-index: 1;
+	/*background: url('favicon.png');
+	background-size: contain;*/
+	width: 180px;
+	height: 180px;
+	border: 1px solid grey;
+	border-radius: 100px;
+	margin: auto;
+	margin-top: 60px;
+	box-shadow:
+		0px -10px 0px red,
+		0px -20px 0px orange,
+		0px -30px 0px yellow,
+		0px -40px 0px green,
+		0px -50px 0px lightblue,
+		0px -60px 0px purple,
+		0px 10px 0px red,
+		0px 20px 0px orange,
+		0px 30px 0px yellow,
+		0px 40px 0px green,
+		0px 50px 0px lightblue,
+		0px 60px 0px purple,
+		-10px 0px 0px red,
+		-20px 0px 0px orange,
+		-30px 0px 0px yellow,
+		-40px 0px 0px green,
+		-50px 0px 0px lightblue,
+		-60px 0px 0px purple,
+		10px 0px 0px red,
+		20px 0px 0px orange,
+		30px 0px 0px yellow,
+		40px 0px 0px green,
+		50px 0px 0px lightblue,
+		60px 0px 0px purple
+		;
+
+}

@@ -1,0 +1,66 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#box {
+	width: 200px;
+	height: 200px;
+	background: red;
+	position: absolute;
+	left: 50px;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+
+	top: 180px;
+	cursor: pointer;
+	text-align: center;
+	z-index: 1;
+}
+
+#box:active {
+	top: 0px;
+	box-shadow: 0px 180px 0px #000;
+	z-index: -1;
+}
+
+#box h1:after {
+	content: 'Tekan Disini';
+}
+
+#box:active h1:after {
+	content: 'Silahkan Masuk';
+
+}
+
+#box2 {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 50px;
+	top: 180px;
+	z-index: 0;
+	background: url('hantu.jpg');
+	background-size: contain;
+}
+
+#box3 {
+	background: #FFF;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 300px;
+	top: 180px;
+	border: 1px solid grey;
+	border-radius: 100px;
+	box-shadow:
+		1px 10px 0px red,
+		2px 20px 0px orange,
+		3px 30px 0px yellow,
+		4px 40px 0px green,
+		5px 50px 0px lightblue,
+		6px 60px 0px purple
+		;
+
+}

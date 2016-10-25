@@ -1,0 +1,10 @@
+data_kota:
+  detail:
+    id: 1
+    nama: Malang
+  detail:
+    id: 2
+    nama: Nganjuk
+  detail:
+    id: 3
+    nama: Blitar

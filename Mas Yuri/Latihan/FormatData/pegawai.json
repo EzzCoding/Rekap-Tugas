@@ -1,0 +1,18 @@
+//Data yang bisa dikomunikasikan di array
+//JSON sering digunakan untuk API -> Database diubah ke JSON ditaruh di url untuk digunakan lagi, contoh football-api
+{
+	"data_kota" : [
+		{
+			"id" : 1,
+			"nama" : "Malang"
+		},
+		{
+			"id" : 2,
+			"nama" : "Nganjuk"
+		},
+		{
+			"id" : 3,
+			"nama" : "Blitar"
+		}
+	]
+}
