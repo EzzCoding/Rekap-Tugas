@@ -1,4 +1,0 @@
-mysql_insert_id() --> Memunculkan ID selanjutnya dari AUTO INCREMENT
-
-<!-- Jika untuk src="/........" -> menggunakan base_url
-jika untuk aksi -> menggunakan site_url -->
