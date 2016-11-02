@@ -68,6 +68,18 @@ class M_nilai extends CI_Model {
 
 		return $data->num_rows();
 	}
+
+	public function getList()
+	{
+		$sql = "select b.mapel, c.nama, a.nilai  
+				from tb_nilai a, tb_mapel b, tb_siswa c
+				where a.id_mapel = b.id_mapel and
+				a.id_siswa = c.id_siswa
+				order by b.mapel";
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
 }
 
 /* End of file M_nilai.php */

@@ -22,6 +22,45 @@ class Home extends CI_Controller {
 			$data['data_nilai'][$mapel->mapel] = $this->M_nilai->SELECT_ALL_BY_Mapel($mapel->id_mapel);
 		}
 
+		// $nilai = $this->M_nilai->getList();
+
+		// $header = [];
+
+		// for ($i=0; $i < count($nilai) ; $i++) { 
+		// 	$before = @$nilai[$i-1]->mapel;
+		// 	$now 	= @$nilai[$i]->mapel;
+
+		// 	if ($now != $before) {
+		// 		$header[] = $now;
+		// 	}
+		// }
+
+		// $fix_data = [];
+
+		// for ($i=0; $i < count($header) ; $i++) { 
+			
+		// 	for ($j=0; $j < count($nilai) ; $j++) {
+
+		// 		if ($nilai[$j]->mapel == $header[$i] ) {
+		// 		 	$fix_data[$header[$i]][] = [
+		// 		 		'nama' => $nilai[$j]->nama,
+		// 		 		'nilai' => $nilai[$j]->nilai
+		// 			];
+		// 		} 
+				
+		// 	}	
+
+		// }
+		
+		// echo "<pre>";
+		// print_r ($nilai);
+
+		// print_r ($header);
+
+		// print_r ($fix_data);
+		// echo "</pre>";
+
+		// $data['data_nilai'] = $fix_data;
 		$data['judul'] = "Data Nilai Siswa";
 
 		$this->load->view('header', $data);
