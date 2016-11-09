@@ -22,25 +22,25 @@ class M_kota extends CI_Model {
 	public function insert($data) {
 		$sql = "INSERT INTO kota VALUES('','" .$data['kota'] ."')";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function update($data) {
 		$sql = "UPDATE kota SET nama='" .$data['kota'] ."' WHERE id='" .$data['id'] ."'";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function delete($id) {
 		$sql = "DELETE FROM kota WHERE id='" .$id ."'";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function total_rows() {

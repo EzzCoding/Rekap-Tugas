@@ -21,26 +21,26 @@ class M_pegawai extends CI_Model {
 	public function update($data) {
 		$sql = "UPDATE pegawai SET nama='" .$data['nama'] ."', telp='" .$data['telp'] ."', id_kota=" .$data['kota'] .", id_kelamin=" .$data['jk'] .", id_posisi=" .$data['posisi'] ." WHERE id='" .$data['id'] ."'";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function delete($id) {
 		$sql = "DELETE FROM pegawai WHERE id='" .$id ."'";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function insert($data) {
 		$id = md5(DATE('ymdhms').rand());
 		$sql = "INSERT INTO pegawai VALUES('{$id}','" .$data['nama'] ."','" .$data['telp'] ."'," .$data['kota'] ."," .$data['jk'] ."," .$data['posisi'] .",1)";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function total_rows() {

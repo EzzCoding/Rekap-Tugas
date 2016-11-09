@@ -1,16 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Posisi extends CI_Controller {
+class Posisi extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_posisi');
-
-		$this->userdata = $this->session->userdata('userdata');
-
-		if ($this->session->userdata('status') == '') {
-			redirect('Auth');
-		}
 	}
 
 	public function index() {
@@ -33,12 +27,24 @@ class Posisi extends CI_Controller {
 	}
 
 	public function prosesTambah() {
-		$data 	= $this->input->post();
-		$result = $this->M_posisi->insert($data);
+		$this->form_validation->set_rules('posisi', 'posisi', 'trim|required');
 
-		if ($result) {
-			redirect('Posisi');
+		$data 	= $this->input->post();
+		if ($this->form_validation->run() == TRUE) {
+			$result = $this->M_posisi->insert($data);
+
+			if ($result > 0) {
+				$this->session->set_flashdata('msg', 'Data Posisi Berhasil ditambahkan');
+				redirect('Posisi');
+			} else {
+				$this->session->set_flashdata('msg', 'Data Posisi Gagal ditambahkan');
+				redirect('Posisi/tambah');
+			}
+		} else {
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('Posisi/tambah');
 		}
+
 	}
 
 	public function update($id) {
@@ -55,19 +61,32 @@ class Posisi extends CI_Controller {
 	}
 
 	public function prosesUpdate() {
-		$data 	= $this->input->post();
-		$result = $this->M_posisi->update($data);
+		$this->form_validation->set_rules('posisi', 'posisi', 'trim|required');
 
-		if ($result) {
-			redirect('Posisi');
+		$data 	= $this->input->post();
+		if ($this->form_validation->run() == TRUE) {
+			$result = $this->M_posisi->update($data);
+
+			if ($result > 0) {
+				$this->session->set_flashdata('msg', 'Data Posisi Berhasil diupdate');
+				redirect('Posisi');
+			} else {
+				$this->session->set_flashdata('msg', 'Data Posisi Gagal diupdate');
+				redirect('Posisi/update/' .$data['id']);
+			}
+		} else {
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('Posisi/update/' .$data['id']);
 		}
 	}
 
 	public function delete($id) {
 		$result = $this->M_posisi->delete($id);
-		if ($result) {
-			redirect('Posisi');
+		if ($result > 0) {
+			$data['status'] = 'success';
+			$this->session->set_flashdata('msg', 'Data Kota Berhasil dihapus');
 		}
+		redirect('Posisi');
 	}
 }
 

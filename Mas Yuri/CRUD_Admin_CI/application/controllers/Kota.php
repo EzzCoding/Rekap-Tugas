@@ -1,16 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kota extends CI_Controller {
+class Kota extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_kota');
-
-		$this->userdata = $this->session->userdata('userdata');
-
-		if ($this->session->userdata('status') == '') {
-			redirect('Auth');
-		}
 	}
 
 	public function index() {
@@ -33,11 +27,22 @@ class Kota extends CI_Controller {
 	}
 
 	public function prosesTambah() {
-		$data 	= $this->input->post();
-		$result = $this->M_kota->insert($data);
+		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
 
-		if ($result) {
-			redirect('Kota');
+		$data 	= $this->input->post();
+		if ($this->form_validation->run() == TRUE) {
+			$result = $this->M_kota->insert($data);
+
+			if ($result > 0) {
+				$this->session->set_flashdata('msg', 'Data Kota Berhasil ditambahkan');
+				redirect('Kota');
+			} else {
+				$this->session->set_flashdata('msg', 'Data Kota Gagal ditambahkan');
+				redirect('Kota/tambah');
+			}
+		} else {
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('Kota/tambah');
 		}
 	}
 
@@ -55,19 +60,32 @@ class Kota extends CI_Controller {
 	}
 
 	public function prosesUpdate() {
-		$data 	= $this->input->post();
-		$result = $this->M_kota->update($data);
+		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
 
-		if ($result) {
-			redirect('Kota');
+		$data 	= $this->input->post();
+		if ($this->form_validation->run() == TRUE) {
+			$result = $this->M_kota->update($data);
+
+			if ($result > 0) {
+				$this->session->set_flashdata('msg', 'Data Kota Berhasil diupdate');
+				redirect('Kota');
+			} else {
+				$this->session->set_flashdata('msg', 'Data Kota Gagal diupdate');
+				redirect('Kota/update/' .$data['id']);
+			}
+		} else {
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('Kota/update/' .$data['id']);
 		}
 	}
 
 	public function delete($id) {
 		$result = $this->M_kota->delete($id);
-		if ($result) {
-			redirect('Kota');
+		if ($result > 0) {
+			$data['status'] = 'success';
+			$this->session->set_flashdata('msg', 'Data Kota Berhasil dihapus');
 		}
+		redirect('Kota');
 	}
 }
 

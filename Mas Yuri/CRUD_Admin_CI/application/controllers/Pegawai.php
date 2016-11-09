@@ -1,18 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pegawai extends CI_Controller {
+class Pegawai extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_pegawai');
 		$this->load->model('M_posisi');
 		$this->load->model('M_kota');
-
-		$this->userdata = $this->session->userdata('userdata');
-
-		if ($this->session->userdata('status') == '') {
-			redirect('Auth');
-		}
 	}
 
 	public function index() {
@@ -45,15 +39,31 @@ class Pegawai extends CI_Controller {
 		$data['page'] = "pegawai";
 		$data['judul'] = "Data Pegawai";
 		$data['deskripsi'] = "Tambah Data Pegawai";
+		
 		$this->template->views('tambahPegawai', $data);
 	}
 
 	public function prosesTambah() {
-		$data = $this->input->post();
-		$result = $this->M_pegawai->insert($data);
+		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
+		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'trim|required');
+		$this->form_validation->set_rules('posisi', 'Posisi', 'trim|required');
 
-		if ($result) {
-			redirect('Pegawai');
+		$data = $this->input->post();
+		if ($this->form_validation->run() == TRUE) {
+			$result = $this->M_pegawai->insert($data);
+
+			if ($result > 0) {
+				$this->session->set_flashdata('msg', 'Data Pegawai Berhasil ditambahkan');
+				redirect('Pegawai');
+			} else {
+				$this->session->set_flashdata('msg', 'Data Pegawai Gagal ditambahkan');
+				redirect('Pegawai/tambah');
+			}
+		} else {
+			// $this->session->set_flashdata('data', $data);
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('Pegawai/tambah');
 		}
 	}
 
@@ -72,19 +82,36 @@ class Pegawai extends CI_Controller {
 	}
 
 	public function prosesUpdate() {
-		$data = $this->input->post();
-		$result = $this->M_pegawai->update($data);
+		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
+		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
+		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'trim|required');
+		$this->form_validation->set_rules('posisi', 'Posisi', 'trim|required');
 
-		if ($result) {
-			redirect('Pegawai');
+		$data = $this->input->post();
+		if ($this->form_validation->run() == TRUE) {
+			$result = $this->M_pegawai->update($data);
+
+			if ($result > 0) {
+				$this->session->set_flashdata('msg', 'Data Pegawai Berhasil diupdate');
+				redirect('Pegawai');
+			} else {
+				$this->session->set_flashdata('msg', 'Data Pegawai Gagal diupdate');
+				redirect('Pegawai/update/' .$data['id']);
+			}
+		} else {
+			// $this->session->set_flashdata('data', $data);
+			$this->session->set_flashdata('msg', validation_errors());
+			redirect('Pegawai/update/' .$data['id']);
 		}
 	}
 
 	public function delete($id) {
 		$result = $this->M_pegawai->delete($id);
-		if ($result) {
-			redirect('Pegawai');
+
+		if ($result > 0) {
+			$this->session->set_flashdata('msg', 'Data Pegawai Berhasil dihapus');
 		}
+		redirect('Pegawai');
 	}
 	// public function detail($id) {
 	// 	$id = trim($id);

@@ -1,3 +1,7 @@
+<?php
+  show_succ_msg($this->session->flashdata('msg'), '20px');
+?>
+
 <div class="box">
   <div class="box-header">
     <!-- <h3 class="box-title">Data Pegawai</h3> -->
@@ -9,7 +13,7 @@
   </div>
   <!-- /.box-header -->
   <div class="box-body">
-    <table id="example1" class="table table-bordered table-striped">
+    <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>#</th>
@@ -48,7 +52,7 @@
 
 <script>
   $(function () {
-    $('#example1').DataTable({
+    $('#list-data').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,

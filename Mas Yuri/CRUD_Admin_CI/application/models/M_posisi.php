@@ -19,25 +19,25 @@ class M_posisi extends CI_Model {
 	public function insert($data) {
 		$sql = "INSERT INTO posisi VALUES('','" .$data['posisi'] ."')";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function update($data) {
 		$sql = "UPDATE posisi SET nama='" .$data['posisi'] ."' WHERE id='" .$data['id'] ."'";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function delete($id) {
 		$sql = "DELETE FROM posisi WHERE id='" .$id ."'";
 
-		$result = $this->db->query($sql);
+		$this->db->query($sql);
 
-		return $result;
+		return $this->db->affected_rows();
 	}
 
 	public function total_rows() {

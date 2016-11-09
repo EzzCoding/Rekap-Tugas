@@ -21,5 +21,10 @@
 				</div>
 			</form>
 		</div>
+		<div class="col-md-offset-3 col-md-6">
+			<?php
+		      show_err_msg($this->session->flashdata('msg'));
+			?>
+		</div>
 	</div>
 </div>
