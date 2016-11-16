@@ -14,16 +14,15 @@ class Posisi extends AUTH_Controller {
 		$data['page'] 		= "posisi";
 		$data['judul'] 		= "Data Posisi";
 		$data['deskripsi'] 	= "Manage Data Posisi";
-		$this->template->views('posisi', $data);
+
+		$data['modal_tambah_posisi'] = show_my_modal('modals/modal_tambah_posisi', 'tambah-posisi', $data);
+
+		$this->template->views('posisi/home', $data);
 	}
 
-	public function tambah() {
-		$data['userdata'] 	= $this->userdata;
-
-		$data['page'] 		= "posisi";
-		$data['judul'] 		= "Data Posisi";
-		$data['deskripsi'] 	= "Tambah Data Posisi";
-		$this->template->views('tambahPosisi', $data);
+	public function tampil() {
+		$data['dataPosisi'] = $this->M_posisi->select_all();
+		$this->load->view('posisi/list_data', $data);
 	}
 
 	public function prosesTambah() {
@@ -34,30 +33,31 @@ class Posisi extends AUTH_Controller {
 			$result = $this->M_posisi->insert($data);
 
 			if ($result > 0) {
-				$this->session->set_flashdata('msg', 'Data Posisi Berhasil ditambahkan');
-				redirect('Posisi');
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Posisi Berhasil ditambahkan', '20px');
 			} else {
-				$this->session->set_flashdata('msg', 'Data Posisi Gagal ditambahkan');
-				redirect('Posisi/tambah');
+				$out['status'] = '';
+				$out['msg'] = show_err_msg('Data Posisi Gagal ditambahkan', '20px');
 			}
 		} else {
-			$this->session->set_flashdata('msg', validation_errors());
-			redirect('Posisi/tambah');
+			$out['status'] = 'form';
+			$out['msg'] = show_err_msg(validation_errors());
 		}
 
+		echo json_encode($out);
 	}
 
-	public function update($id) {
+	public function update() {
 		$data['userdata'] 	= $this->userdata;
 
-		$id 				= trim($id);
+		$id 				= trim($_POST['id']);
 		$data['dataPosisi'] = $this->M_posisi->select_by_id($id);
 
 		$data['page'] 		= "posisi";
 		$data['judul'] 		= "Data Posisi";
 		$data['deskripsi'] 	= "Update Data Posisi";
 
-		$this->template->views('updatePosisi', $data);
+		echo show_my_modal('modals/modal_update_posisi', 'update-posisi', $data);
 	}
 
 	public function prosesUpdate() {
@@ -68,25 +68,29 @@ class Posisi extends AUTH_Controller {
 			$result = $this->M_posisi->update($data);
 
 			if ($result > 0) {
-				$this->session->set_flashdata('msg', 'Data Posisi Berhasil diupdate');
-				redirect('Posisi');
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Posisi Berhasil diupdate', '20px');
 			} else {
-				$this->session->set_flashdata('msg', 'Data Posisi Gagal diupdate');
-				redirect('Posisi/update/' .$data['id']);
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Posisi Gagal diupdate', '20px');
 			}
 		} else {
-			$this->session->set_flashdata('msg', validation_errors());
-			redirect('Posisi/update/' .$data['id']);
+			$out['status'] = 'form';
+			$out['msg'] = show_err_msg(validation_errors());
 		}
+
+		echo json_encode($out);
 	}
 
-	public function delete($id) {
+	public function delete() {
+		$id = $_POST['id'];
 		$result = $this->M_posisi->delete($id);
+		
 		if ($result > 0) {
-			$data['status'] = 'success';
-			$this->session->set_flashdata('msg', 'Data Kota Berhasil dihapus');
+			echo show_succ_msg('Data Posisi Berhasil dihapus', '20px');
+		} else {
+			echo show_err_msg('Data Posisi Gagal dihapus', '20px');
 		}
-		redirect('Posisi');
 	}
 }
 

@@ -12,35 +12,21 @@ class Pegawai extends AUTH_Controller {
 	public function index() {
 		$data['userdata'] = $this->userdata;
 		$data['dataPegawai'] = $this->M_pegawai->select_all();
+		$data['dataPosisi'] = $this->M_posisi->select_all();
+		$data['dataKota'] = $this->M_kota->select_all();
 
 		$data['page'] = "pegawai";
 		$data['judul'] = "Data Pegawai";
 		$data['deskripsi'] = "Manage Data Pegawai";
-		$this->template->views('pegawai', $data);
+
+		$data['modal_tambah_pegawai'] = show_my_modal('modals/modal_tambah_pegawai', 'tambah-pegawai', $data);
+
+		$this->template->views('pegawai/home', $data);
 	}
 
-	// public function tampil() {
-	// 	$this->status = $this->session->userdata('status');
-
-	// 	if ($this->status != '') {
-	// 		$data['dataPegawai'] = $this->M_pegawai->select_all();
-
-	// 		$this->load->view('list_dataPegawai', $data);
-	// 	} else {
-	// 		redirect('Auth');
-	// 	}
-	// }
-
-	public function tambah() {
-		$data['dataPosisi'] = $this->M_posisi->select_all();
-		$data['dataKota'] = $this->M_kota->select_all();
-		$data['userdata'] = $this->userdata;
-
-		$data['page'] = "pegawai";
-		$data['judul'] = "Data Pegawai";
-		$data['deskripsi'] = "Tambah Data Pegawai";
-		
-		$this->template->views('tambahPegawai', $data);
+	public function tampil() {
+		$data['dataPegawai'] = $this->M_pegawai->select_all();
+		$this->load->view('pegawai/list_data', $data);
 	}
 
 	public function prosesTambah() {
@@ -54,31 +40,29 @@ class Pegawai extends AUTH_Controller {
 			$result = $this->M_pegawai->insert($data);
 
 			if ($result > 0) {
-				$this->session->set_flashdata('msg', 'Data Pegawai Berhasil ditambahkan');
-				redirect('Pegawai');
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
 			} else {
-				$this->session->set_flashdata('msg', 'Data Pegawai Gagal ditambahkan');
-				redirect('Pegawai/tambah');
+				$out['status'] = '';
+				$out['msg'] = show_err_msg('Data Pegawai Gagal ditambahkan', '20px');
 			}
 		} else {
-			// $this->session->set_flashdata('data', $data);
-			$this->session->set_flashdata('msg', validation_errors());
-			redirect('Pegawai/tambah');
+			$out['status'] = 'form';
+			$out['msg'] = show_err_msg(validation_errors());
 		}
+
+		echo json_encode($out);
 	}
 
-	public function update($id) {
-		$id = trim($id);
+	public function update() {
+		$id = trim($_POST['id']);
+
 		$data['dataPegawai'] = $this->M_pegawai->select_by_id($id);
 		$data['dataPosisi'] = $this->M_posisi->select_all();
 		$data['dataKota'] = $this->M_kota->select_all();
 		$data['userdata'] = $this->userdata;
 
-		$data['page'] = "pegawai";
-		$data['judul'] = "Data Pegawai";
-		$data['deskripsi'] = "Update Data Pegawai";
-
-		$this->template->views('updatePegawai', $data);
+		echo show_my_modal('modals/modal_update_pegawai', 'update-pegawai', $data);
 	}
 
 	public function prosesUpdate() {
@@ -92,33 +76,30 @@ class Pegawai extends AUTH_Controller {
 			$result = $this->M_pegawai->update($data);
 
 			if ($result > 0) {
-				$this->session->set_flashdata('msg', 'Data Pegawai Berhasil diupdate');
-				redirect('Pegawai');
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Pegawai Berhasil diupdate', '20px');
 			} else {
-				$this->session->set_flashdata('msg', 'Data Pegawai Gagal diupdate');
-				redirect('Pegawai/update/' .$data['id']);
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Pegawai Gagal diupdate', '20px');
 			}
 		} else {
-			// $this->session->set_flashdata('data', $data);
-			$this->session->set_flashdata('msg', validation_errors());
-			redirect('Pegawai/update/' .$data['id']);
+			$out['status'] = 'form';
+			$out['msg'] = show_err_msg(validation_errors());
 		}
+
+		echo json_encode($out);
 	}
 
-	public function delete($id) {
+	public function delete() {
+		$id = $_POST['id'];
 		$result = $this->M_pegawai->delete($id);
 
 		if ($result > 0) {
-			$this->session->set_flashdata('msg', 'Data Pegawai Berhasil dihapus');
+			echo show_succ_msg('Data Pegawai Berhasil dihapus', '20px');
+		} else {
+			echo show_err_msg('Data Pegawai Gagal dihapus', '20px');
 		}
-		redirect('Pegawai');
 	}
-	// public function detail($id) {
-	// 	$id = trim($id);
-	// 	$data['dataPegawai'] = $this->M_pegawai->select_by_id($id);
-
-	// 	$this->load->view('detail', $data);
-	// }
 }
 
 /* End of file Pegawai.php */

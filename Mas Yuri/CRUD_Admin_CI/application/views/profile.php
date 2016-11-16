@@ -14,8 +14,6 @@
             <b>Username</b> <a class="pull-right"><?php echo $userdata->username; ?></a>
           </li>
         </ul>
-
-        <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
       </div>
     </div>
   </div>
@@ -57,7 +55,7 @@
       </div>
     </div>
 
-    <?php show_succ_msg($this->session->flashdata('msg')); ?>
+    <?php echo show_succ_msg($this->session->flashdata('msg')); ?>
 
   </div>
 </div>

@@ -18,6 +18,22 @@ class M_pegawai extends CI_Model {
 		return $data->row();
 	}
 
+	public function select_by_posisi($id) {
+		$sql = "SELECT COUNT(*) AS jml FROM pegawai WHERE id_posisi = {$id}";
+
+		$data = $this->db->query($sql);
+
+		return $data->row();
+	}
+
+	public function select_by_kota($id) {
+		$sql = "SELECT COUNT(*) AS jml FROM pegawai WHERE id_kota = {$id}";
+
+		$data = $this->db->query($sql);
+
+		return $data->row();
+	}
+
 	public function update($data) {
 		$sql = "UPDATE pegawai SET nama='" .$data['nama'] ."', telp='" .$data['telp'] ."', id_kota=" .$data['kota'] .", id_kelamin=" .$data['jk'] .", id_posisi=" .$data['posisi'] ." WHERE id='" .$data['id'] ."'";
 

@@ -14,16 +14,15 @@ class Kota extends AUTH_Controller {
 		$data['page'] 		= "kota";
 		$data['judul'] 		= "Data Kota";
 		$data['deskripsi'] 	= "Manage Data Kota";
-		$this->template->views('kota', $data);
+
+		$data['modal_tambah_kota'] = show_my_modal('modals/modal_tambah_kota', 'tambah-kota', $data);
+
+		$this->template->views('kota/home', $data);
 	}
 
-	public function tambah() {
-		$data['userdata'] 	= $this->userdata;
-
-		$data['page'] 		= "kota";
-		$data['judul'] 		= "Data Kota";
-		$data['deskripsi'] 	= "Tambah Data Kota";
-		$this->template->views('tambahKota', $data);
+	public function tampil() {
+		$data['dataKota'] = $this->M_kota->select_all();
+		$this->load->view('kota/list_data', $data);
 	}
 
 	public function prosesTambah() {
@@ -34,29 +33,31 @@ class Kota extends AUTH_Controller {
 			$result = $this->M_kota->insert($data);
 
 			if ($result > 0) {
-				$this->session->set_flashdata('msg', 'Data Kota Berhasil ditambahkan');
-				redirect('Kota');
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Kota Berhasil ditambahkan', '20px');
 			} else {
-				$this->session->set_flashdata('msg', 'Data Kota Gagal ditambahkan');
-				redirect('Kota/tambah');
+				$out['status'] = '';
+				$out['msg'] = show_err_msg('Data Kota Gagal ditambahkan', '20px');
 			}
 		} else {
-			$this->session->set_flashdata('msg', validation_errors());
-			redirect('Kota/tambah');
+			$out['status'] = 'form';
+			$out['msg'] = show_err_msg(validation_errors());
 		}
+
+		echo json_encode($out);
 	}
 
-	public function update($id) {
+	public function update() {
 		$data['userdata'] 	= $this->userdata;
 
-		$id 				= trim($id);
+		$id 				= trim($_POST['id']);
 		$data['dataKota'] 	= $this->M_kota->select_by_id($id);
 
 		$data['page'] 		= "kota";
 		$data['judul'] 		= "Data Kota";
 		$data['deskripsi'] 	= "Update Data Kota";
 
-		$this->template->views('updateKota', $data);
+		echo show_my_modal('modals/modal_update_kota', 'update-kota', $data);
 	}
 
 	public function prosesUpdate() {
@@ -67,25 +68,29 @@ class Kota extends AUTH_Controller {
 			$result = $this->M_kota->update($data);
 
 			if ($result > 0) {
-				$this->session->set_flashdata('msg', 'Data Kota Berhasil diupdate');
-				redirect('Kota');
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Kota Berhasil diupdate', '20px');
 			} else {
-				$this->session->set_flashdata('msg', 'Data Kota Gagal diupdate');
-				redirect('Kota/update/' .$data['id']);
+				$out['status'] = '';
+				$out['msg'] = show_succ_msg('Data Kota Gagal diupdate', '20px');
 			}
 		} else {
-			$this->session->set_flashdata('msg', validation_errors());
-			redirect('Kota/update/' .$data['id']);
+			$out['status'] = 'form';
+			$out['msg'] = show_err_msg(validation_errors());
 		}
+
+		echo json_encode($out);
 	}
 
-	public function delete($id) {
+	public function delete() {
+		$id = $_POST['id'];
 		$result = $this->M_kota->delete($id);
+		
 		if ($result > 0) {
-			$data['status'] = 'success';
-			$this->session->set_flashdata('msg', 'Data Kota Berhasil dihapus');
+			echo show_succ_msg('Data Kota Berhasil dihapus', '20px');
+		} else {
+			echo show_err_msg('Data Kota Gagal dihapus', '20px');
 		}
-		redirect('Kota');
 	}
 }
 
