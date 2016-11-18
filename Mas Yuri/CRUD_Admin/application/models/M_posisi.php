@@ -16,6 +16,14 @@ class M_posisi extends CI_Model {
 		return $data->row();
 	}
 
+	public function select_by_pegawai($id) {
+		$sql = " SELECT pegawai.id AS id, pegawai.nama AS pegawai, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id_kota = kota.id AND pegawai.id_posisi={$id}";
+
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
+
 	public function insert($data) {
 		$sql = "INSERT INTO posisi VALUES('','" .$data['posisi'] ."')";
 

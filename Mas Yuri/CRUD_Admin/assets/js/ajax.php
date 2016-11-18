@@ -8,6 +8,12 @@
 		  "autoWidth": false
 		});
 
+	window.onload = function() {
+		tampilPegawai();
+		tampilPosisi();
+		tampilKota();
+	}
+
 	function refresh() {
 		MyTable = $('#list-data').dataTable();
 	}
@@ -32,23 +38,24 @@
 		});
 	}
 
+	var id_pegawai;
+	$(document).on("click", ".konfirmasiHapus-pegawai", function() {
+		id_pegawai = $(this).attr("data-id");
+	})
 	$(document).on("click", ".hapus-dataPegawai", function() {
-		var hapus = confirm('Anda yakin menghapus ID ini?');
-
-		if (hapus) {
-			var id = $(this).attr("data-id");
-			
-			$.ajax({
-				method: "POST",
-				url: "<?php echo base_url('Pegawai/delete'); ?>",
-				data: "id=" +id
-			})
-			.done(function(data) {
-				tampilPegawai();
-				$('.msg').html(data);
-				effect_msg();
-			})
-		}
+		var id = id_pegawai;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Pegawai/delete'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiHapus').modal('hide');
+			tampilPegawai();
+			$('.msg').html(data);
+			effect_msg();
+		})
 	})
 
 	$(document).on("click", ".update-dataPegawai", function() {
@@ -60,7 +67,7 @@
 			data: "id=" +id
 		})
 		.done(function(data) {
-			$('#modal-update').html(data);
+			$('#tempat-modal').html(data);
 			$('#update-pegawai').modal('show');
 		})
 	})
@@ -134,23 +141,24 @@
 		});
 	}
 
+	var id_kota;
+	$(document).on("click", ".konfirmasiHapus-kota", function() {
+		id_kota = $(this).attr("data-id");
+	})
 	$(document).on("click", ".hapus-dataKota", function() {
-		var hapus = confirm('Anda yakin menghapus ID ini?');
-
-		if (hapus) {
-			var id = $(this).attr("data-id");
-			
-			$.ajax({
-				method: "POST",
-				url: "<?php echo base_url('Kota/delete'); ?>",
-				data: "id=" +id
-			})
-			.done(function(data) {
-				tampilKota();
-				$('.msg').html(data);
-				effect_msg();
-			})
-		}
+		var id = id_kota;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Kota/delete'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiHapus').modal('hide');
+			tampilKota();
+			$('.msg').html(data);
+			effect_msg();
+		})
 	})
 
 	$(document).on("click", ".update-dataKota", function() {
@@ -162,8 +170,30 @@
 			data: "id=" +id
 		})
 		.done(function(data) {
-			$('#modal-update').html(data);
+			$('#tempat-modal').html(data);
 			$('#update-kota').modal('show');
+		})
+	})
+
+	$(document).on("click", ".detail-dataKota", function() {
+		var id = $(this).attr("data-id");
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Kota/detail'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#tempat-modal').html(data);
+			$('#tabel-detail').dataTable({
+				  "paging": true,
+				  "lengthChange": false,
+				  "searching": true,
+				  "ordering": false,
+				  "info": true,
+				  "autoWidth": false
+				});
+			$('#detail-kota').modal('show');
 		})
 	})
 
@@ -236,23 +266,24 @@
 		});
 	}
 
+	var id_posisi;
+	$(document).on("click", ".konfirmasiHapus-posisi", function() {
+		id_posisi = $(this).attr("data-id");
+	})
 	$(document).on("click", ".hapus-dataPosisi", function() {
-		var hapus = confirm('Anda yakin menghapus ID ini?');
-
-		if (hapus) {
-			var id = $(this).attr("data-id");
-			
-			$.ajax({
-				method: "POST",
-				url: "<?php echo base_url('Posisi/delete'); ?>",
-				data: "id=" +id
-			})
-			.done(function(data) {
-				tampilPosisi();
-				$('.msg').html(data);
-				effect_msg();
-			})
-		}
+		var id = id_posisi;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Posisi/delete'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiHapus').modal('hide');
+			tampilPosisi();
+			$('.msg').html(data);
+			effect_msg();
+		})
 	})
 
 	$(document).on("click", ".update-dataPosisi", function() {
@@ -264,8 +295,30 @@
 			data: "id=" +id
 		})
 		.done(function(data) {
-			$('#modal-update').html(data);
+			$('#tempat-modal').html(data);
 			$('#update-posisi').modal('show');
+		})
+	})
+
+	$(document).on("click", ".detail-dataPosisi", function() {
+		var id = $(this).attr("data-id");
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Posisi/detail'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#tempat-modal').html(data);
+			$('#tabel-detail').dataTable({
+				  "paging": true,
+				  "lengthChange": false,
+				  "searching": true,
+				  "ordering": false,
+				  "info": true,
+				  "autoWidth": false
+				});
+			$('#detail-posisi').modal('show');
 		})
 	})
 

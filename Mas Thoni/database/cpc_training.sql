@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Nov 2016 pada 05.09
+-- Generation Time: 18 Nov 2016 pada 17.03
 -- Versi Server: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `guru` (
   `id_guru` int(11) NOT NULL AUTO_INCREMENT,
   `nama_guru` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_guru`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `guru`
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `kelas` (
   `id_kelas` int(11) NOT NULL AUTO_INCREMENT,
   `nama_kelas` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_kelas`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `kelas`
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `mapel` (
   `nama_mapel` varchar(255) DEFAULT NULL,
   `id_guru` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_mapel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `mapel`
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `nilai` (
   `id_siswa` int(11) NOT NULL,
   `total_nilai` int(11) NOT NULL,
   PRIMARY KEY (`id_nilai`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data untuk tabel `nilai`
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `siswa` (
   `alamat` text,
   `id_kelas` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data untuk tabel `siswa`

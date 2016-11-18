@@ -53,10 +53,6 @@ class Kota extends AUTH_Controller {
 		$id 				= trim($_POST['id']);
 		$data['dataKota'] 	= $this->M_kota->select_by_id($id);
 
-		$data['page'] 		= "kota";
-		$data['judul'] 		= "Data Kota";
-		$data['deskripsi'] 	= "Update Data Kota";
-
 		echo show_my_modal('modals/modal_update_kota', 'update-kota', $data);
 	}
 
@@ -91,6 +87,17 @@ class Kota extends AUTH_Controller {
 		} else {
 			echo show_err_msg('Data Kota Gagal dihapus', '20px');
 		}
+	}
+
+	public function detail() {
+		$data['userdata'] 	= $this->userdata;
+
+		$id 				= trim($_POST['id']);
+		$data['kota'] = $this->M_kota->select_by_id($id);
+		$data['jumlahKota'] = $this->M_kota->total_rows();
+		$data['dataKota'] = $this->M_kota->select_by_pegawai($id);
+
+		echo show_my_modal('modals/modal_detail_kota', 'detail-kota', $data, 'lg');
 	}
 }
 

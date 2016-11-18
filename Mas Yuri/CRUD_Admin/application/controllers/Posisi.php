@@ -53,10 +53,6 @@ class Posisi extends AUTH_Controller {
 		$id 				= trim($_POST['id']);
 		$data['dataPosisi'] = $this->M_posisi->select_by_id($id);
 
-		$data['page'] 		= "posisi";
-		$data['judul'] 		= "Data Posisi";
-		$data['deskripsi'] 	= "Update Data Posisi";
-
 		echo show_my_modal('modals/modal_update_posisi', 'update-posisi', $data);
 	}
 
@@ -91,6 +87,16 @@ class Posisi extends AUTH_Controller {
 		} else {
 			echo show_err_msg('Data Posisi Gagal dihapus', '20px');
 		}
+	}
+
+	public function detail() {
+		$data['userdata'] 	= $this->userdata;
+
+		$id 				= trim($_POST['id']);
+		$data['posisi'] = $this->M_posisi->select_by_id($id);
+		$data['dataPosisi'] = $this->M_posisi->select_by_pegawai($id);
+
+		echo show_my_modal('modals/modal_detail_posisi', 'detail-posisi', $data, 'lg');
 	}
 }
 
