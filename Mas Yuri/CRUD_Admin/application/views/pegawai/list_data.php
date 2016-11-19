@@ -1,5 +1,5 @@
 <?php
-  foreach ($dataPosisi as $pegawai) {
+  foreach ($dataPegawai as $pegawai) {
     ?>
     <tr>
       <td style="min-width:230px;"><?php echo $pegawai->pegawai; ?></td>
