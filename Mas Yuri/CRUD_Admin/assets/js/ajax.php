@@ -189,7 +189,7 @@
 				  "paging": true,
 				  "lengthChange": false,
 				  "searching": true,
-				  "ordering": false,
+				  "ordering": true,
 				  "info": true,
 				  "autoWidth": false
 				});
@@ -314,7 +314,7 @@
 				  "paging": true,
 				  "lengthChange": false,
 				  "searching": true,
-				  "ordering": false,
+				  "ordering": true,
 				  "info": true,
 				  "autoWidth": false
 				});
@@ -382,19 +382,4 @@
 	  $('.form-msg').html('');
 	})
 
-	// $(document).on('submit', '#form-update-profile', function(e){
-	// 	var data = $(this).serialize();
-
-	// 	$.ajax({
-	// 		method: "POST",
-	// 		url: "<?php echo base_url('Profile/update') ?>",
-	// 		data: data
-	// 	})
-	// 	.done(function(data) {
-	// 		$('.msg').html(data);
-	// 		effect_msg();
-	// 	})
-
-	// 	e.preventDefault();
-	// })
 </script>
