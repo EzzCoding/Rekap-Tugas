@@ -160,7 +160,7 @@ class Posisi extends AUTH_Controller {
 						$check = $this->M_posisi->check_nama($value['B']);
 
 						if ($check != 1) {
-							$resultData[$index]['nama'] = $value['B'];
+							$resultData[$index]['nama'] = ucwords($value['B']);
 						}
 					}
 					$index++;
@@ -175,7 +175,7 @@ class Posisi extends AUTH_Controller {
 						redirect('Posisi');
 					}
 				} else {
-					$this->session->set_flashdata('msg', show_err_msg('Data Posisi Gagal diimport ke database'));
+					$this->session->set_flashdata('msg', show_msg('Data Posisi Gagal diimport ke database (Data Sudah terupdate)', 'warning', 'fa-warning'));
 					redirect('Posisi');
 				}
 

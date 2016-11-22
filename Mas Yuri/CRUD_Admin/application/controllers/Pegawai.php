@@ -174,7 +174,7 @@ class Pegawai extends AUTH_Controller {
 
 						if ($check != 1) {
 							$resultData[$index]['id'] = $id;
-							$resultData[$index]['nama'] = $value['B'];
+							$resultData[$index]['nama'] = ucwords($value['B']);
 							$resultData[$index]['telp'] = $value['C'];
 							$resultData[$index]['id_kota'] = $value['D'];
 							$resultData[$index]['id_kelamin'] = $value['E'];
@@ -194,7 +194,7 @@ class Pegawai extends AUTH_Controller {
 						redirect('Pegawai');
 					}
 				} else {
-					$this->session->set_flashdata('msg', show_err_msg('Data Pegawai Gagal diimport ke database'));
+					$this->session->set_flashdata('msg', show_msg('Data Pegawai Gagal diimport ke database (Data Sudah terupdate)', 'warning', 'fa-warning'));
 					redirect('Pegawai');
 				}
 

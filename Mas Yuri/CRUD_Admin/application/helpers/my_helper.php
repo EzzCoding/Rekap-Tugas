@@ -2,7 +2,7 @@
 	// MSG
 	function show_msg($content='', $type='success', $icon='fa-info-circle', $size='14px') {
 		if ($content != '') {
-			echo   '<p class="box-msg">
+			return  '<p class="box-msg">
 				      <div class="info-box alert-' .$type .'">
 					      <div class="info-box-icon">
 					      	<i class="fa ' .$icon .'"></i>
