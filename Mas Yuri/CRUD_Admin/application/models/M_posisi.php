@@ -32,6 +32,12 @@ class M_posisi extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
+	public function insert_batch($data) {
+		$this->db->insert_batch('posisi', $data);
+		
+		return $this->db->affected_rows();
+	}
+
 	public function update($data) {
 		$sql = "UPDATE posisi SET nama='" .$data['posisi'] ."' WHERE id='" .$data['id'] ."'";
 
@@ -46,6 +52,13 @@ class M_posisi extends CI_Model {
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
+	}
+
+	public function check_nama($nama) {
+		$this->db->where('nama', $nama);
+		$data = $this->db->get('posisi');
+
+		return $data->num_rows();
 	}
 
 	public function total_rows() {

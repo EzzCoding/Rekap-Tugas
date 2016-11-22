@@ -35,6 +35,12 @@ class M_kota extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
+	public function insert_batch($data) {
+		$this->db->insert_batch('kota', $data);
+		
+		return $this->db->affected_rows();
+	}
+
 	public function update($data) {
 		$sql = "UPDATE kota SET nama='" .$data['kota'] ."' WHERE id='" .$data['id'] ."'";
 
@@ -49,6 +55,13 @@ class M_kota extends CI_Model {
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
+	}
+
+	public function check_nama($nama) {
+		$this->db->where('nama', $nama);
+		$data = $this->db->get('kota');
+
+		return $data->num_rows();
 	}
 
 	public function total_rows() {

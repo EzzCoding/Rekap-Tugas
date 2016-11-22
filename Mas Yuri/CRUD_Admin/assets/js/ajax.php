@@ -12,6 +12,11 @@
 		tampilPegawai();
 		tampilPosisi();
 		tampilKota();
+		<?php
+			if ($this->session->flashdata('msg') != '') {
+				echo "effect_msg();";
+			}
+		?>
 	}
 
 	function refresh() {
@@ -19,13 +24,13 @@
 	}
 
 	function effect_msg_form() {
-		$('.form-msg').hide();
+		// $('.form-msg').hide();
 		$('.form-msg').show(1000);
 		setTimeout(function() { $('.form-msg').fadeOut(1000); }, 3000);
 	}
 
 	function effect_msg() {
-		$('.msg').hide();
+		// $('.msg').hide();
 		$('.msg').show(1000);
 		setTimeout(function() { $('.msg').fadeOut(1000); }, 3000);
 	}
@@ -381,5 +386,4 @@
 	$('#update-posisi').on('hidden.bs.modal', function () {
 	  $('.form-msg').html('');
 	})
-
 </script>

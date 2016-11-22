@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_pegawai extends CI_Model {
+	public function select_all_pegawai() {
+		$sql = "SELECT * FROM pegawai";
+
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
+
 	public function select_all() {
 		$sql = " SELECT pegawai.id AS id, pegawai.nama AS pegawai, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id_kota = kota.id";
 
@@ -57,6 +65,19 @@ class M_pegawai extends CI_Model {
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
+	}
+
+	public function insert_batch($data) {
+		$this->db->insert_batch('pegawai', $data);
+		
+		return $this->db->affected_rows();
+	}
+
+	public function check_nama($nama) {
+		$this->db->where('nama', $nama);
+		$data = $this->db->get('pegawai');
+
+		return $data->num_rows();
 	}
 
 	public function total_rows() {

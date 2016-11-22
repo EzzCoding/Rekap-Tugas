@@ -74,7 +74,7 @@
       </div>
       <!-- /.login-box-body -->
       <?php
-        show_err_msg($this->session->flashdata('error_msg'));
+        echo show_err_msg($this->session->flashdata('error_msg'));
       ?>
     </div>
     
